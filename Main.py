@@ -42,7 +42,7 @@ class Main(QDialog):
         sum_row2 = self.find_sum_row2()
         self.label_info.setText(sum_row2.__str__())
         if sum_row2 > 200:
-            self.find_mod_col3()
+            self.mod_col3()
 
     def find_sum_row2(self):
         """
@@ -58,7 +58,7 @@ class Main(QDialog):
             col += 1
         return sum_row2
 
-    def find_mod_col3(self):
+    def mod_col3(self):
         """
         Увеличение чисел второго столбца на два
         """
