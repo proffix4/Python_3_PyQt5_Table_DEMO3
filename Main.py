@@ -25,11 +25,12 @@ class Main(QDialog):
         Метод для кнопки "Заполнить случайными числами"
         Случайные числа от 1 до 100
         """
+        self.label_info.setText("")
         row = 0
         col = 0
         while row < self.tableWidget.rowCount():
             while col < self.tableWidget.columnCount():
-                random_num = randint(0, 101)
+                random_num = randint(0, 100)
                 self.tableWidget.setItem(row, col, QTableWidgetItem(str(random_num)))
                 col += 1
             row += 1
@@ -39,10 +40,14 @@ class Main(QDialog):
         """
         Метод для кнопки "Выполнить задание"
         """
-        sum_row2 = self.find_sum_row2()
-        self.label_info.setText(sum_row2.__str__())
-        if sum_row2 > 200:
-            self.mod_col3()
+        try:
+            self.label_info.setText("Error!")
+            sum_row2 = self.find_sum_row2()
+            self.label_info.setText(sum_row2.__str__())
+            if sum_row2 > 200:
+                self.mod_col3()
+        except:
+            pass
 
     def find_sum_row2(self):
         """
